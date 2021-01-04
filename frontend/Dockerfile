@@ -1,9 +1,9 @@
 FROM node:latest as build-stage
 WORKDIR /app
-COPY package*.json ./
+COPY frontend/package*.json ./
 RUN ls -l
 RUN npm install
-COPY ./ .
+COPY frontend/ .
 RUN ls -l
 RUN npm run build
 
