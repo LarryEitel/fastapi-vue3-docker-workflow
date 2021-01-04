@@ -10,7 +10,7 @@ Stubbing out and documenting FastAPI, VueJS 3 and Docker workflow.
   - From frontend DIR, [create Docker image](https://cli.vuejs.org/guide/deployment.html#docker-nginx)
   - docker build . -t frontend
   - docker run -d -p 8080:80 frontend
-- [ ] Create GitAction to build docker image and push to dockerhub
+- [x] Create GitAction to build docker image and push to dockerhub
 - [ ] Create DigitalOcean Droplet for craulio.com
 - [ ] Setup Shell access
 - [ ] Create user
