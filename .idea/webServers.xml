@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="887059af-deff-45f0-a788-555022b6d04c" name="craulio.com" url="http://craulio.com">
+        <fileTransfer accessType="SFTP" host="craulio.com" port="22" sshConfigId="e98d29a6-3fae-4ae2-b570-d78c3a274b35" sshConfig="root@craulio.com:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
