@@ -1,6 +1,9 @@
 # fastapi-vue3-docker-workflow
 Stubbing out and documenting FastAPI, VueJS 3 and Docker workflow.
 
+![Build Containers for Prod & Push to Dockerhub](https://github.com/LarryEitel/fastapi-vue3-docker-workflow/workflows/Build%20Containers%20for%20Prod%20&%20Push%20to%20Dockerhub/badge.svg)
+
+
 ## Punchlist
 - [x] Create sample vue frontend
   - From frontend DIR, [Vue CLI create project](https://cli.vuejs.org/guide/creating-a-project.html#vue-create) (Installed in same DIR and selected default Vue3)
