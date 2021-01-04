@@ -14,8 +14,11 @@ Stubbing out and documenting FastAPI, VueJS 3 and Docker workflow.
   - docker build . -t frontend
   - docker run -d -p 8080:80 frontend
 - [x] Create GitAction to build docker image and push to dockerhub
-- [ ] Create DigitalOcean Droplet for craulio.com
-- [ ] Setup Shell access
+  - Confirm image arrived at private [hub.docker.com](https://hub.docker.com/)
+- [x] Create [DigitalOcean](digitalocean.com) Droplet for <domain.com>
+- [x] Setup Shell access
+  - ([nice instructions](https://youtu.be/hf8wUUrGCgU?list=PLFBirL3MAv29JsC0G3ARt0fNWoK2PAdI6&t=205))
+  - use puttygen to convert private key to <privateKey>.ppk
 - [ ] Create user
 - [ ] Install nginx
 - [ ] Generate SSL
