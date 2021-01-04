@@ -3,7 +3,7 @@ Stubbing out and documenting FastAPI, VueJS 3 and Docker workflow.
 
 ## Punchlist
 - [x] Create sample vue frontend
-  - From frontend DIR, [Vue CLI create project](https://cli.vuejs.org/guide/creating-a-project.html#vue-create) (Installed in same Selected default Vue3)
+  - From frontend DIR, [Vue CLI create project](https://cli.vuejs.org/guide/creating-a-project.html#vue-create) (Installed in same DIR and selected default Vue3)
   - yarn serve and [http://localhost:8080/](http://localhost:8080/)
 - [X] Push to Git
 - [X] Create Dockerfile to run Vue from Docker
