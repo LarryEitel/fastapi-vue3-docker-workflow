@@ -9,32 +9,20 @@ on:
       - main
 
 jobs:
-  build-and-deploy-front:
-    name: Build and Deploy frontend
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Build and push Docker image
-      uses: docker/build-push-action@v1
-      with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
-        repository: larryeitel/fastapi-vue3-docker-workflow
-        dockerfile: frontend/Dockerfile
-        tags: latest
-
   #Push to Digital Ocean private Registry
   pushToDORegistry:
     # Ensure test job passes before pushing image.
     # needs: test
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
     steps:
-      - uses: actions/checkout@v2
-      - name: Build image
-        run: docker build . --file Dockerfile --tag $IMAGE_NAME
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: larryeitel/fastapi-vue3-docker-workflow
+          dockerfile: frontend/Dockerfile
+          tags: latest
 
       - name: Install doctl                 # install the doctl on the runner
         uses: digitalocean/action-doctl@v2
