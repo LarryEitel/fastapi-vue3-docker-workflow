@@ -27,9 +27,18 @@ Stubbing out and documenting FastAPI, VueJS 3 and Docker workflow.
   - sudo su - larry
 - [ ] Github runner
   - Nice
+    - [Deploying Self-hosted Runners for GitHub Actions](https://www.youtube.com/watch?v=G6nBM3NxBDc)
+    - [Deploying to Digitalocean](https://stackabuse.com/deploying-a-node-js-app-to-a-digitalocean-droplet-with-docker/)
   - [github actions](https://github.com/LarryEitel/fastapi-vue3-docker-workflow/settings/actions)
+    - [See final part of comment re deploy image to DO](https://www.digitalocean.com/community/questions/automatic-deployment-using-github-actions-digital-ocean-registry-into-a-droplet)
     - Add runner following instructions
-  
+    - Install as service
+      - from /home/larry/actions-runner
+        - sudo ./svc.sh install
+        - sudo ./svc.sh start
+        - sudo ./svc.sh status
+    - QUESTION: How to follow log?
+      - sudo journalctl -u actions.runner........
 - [x] Docker Prep
   - mkdir /root/devops
   - cd /root/devops
