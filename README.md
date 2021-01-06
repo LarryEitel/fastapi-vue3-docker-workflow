@@ -3,6 +3,8 @@ Stubbing out and documenting FastAPI, VueJS 3 and Docker workflow.
 
 ![Build Containers for Prod & Push to Dockerhub](https://github.com/LarryEitel/fastapi-vue3-docker-workflow/workflows/Build%20Containers%20for%20Prod%20&%20Push%20to%20Dockerhub/badge.svg)
 
+## Must Reads
+- [x] [Deploying Self-Hosted Github Actions Runners with Docker](https://testdriven.io/blog/github-actions-docker/)
 
 ## Punchlist
 - [x] Create sample vue frontend
