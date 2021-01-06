@@ -21,6 +21,15 @@ Stubbing out and documenting FastAPI, VueJS 3 and Docker workflow.
   - use [puttygen](https://www.ssh.com/ssh/putty/windows/puttygen) to convert private key to <privateKey>.ppk
 - [x] Replace ubuntu prompt
   - PS1=$
+- [ ] Create user
+  - adduser larry
+  - adduser larry sudo
+  - sudo su - larry
+- [ ] Github runner
+  - Nice
+  - [github actions](https://github.com/LarryEitel/fastapi-vue3-docker-workflow/settings/actions)
+    - Add runner following instructions
+  
 - [x] Docker Prep
   - mkdir /root/devops
   - cd /root/devops
