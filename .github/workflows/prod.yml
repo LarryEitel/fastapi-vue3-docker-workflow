@@ -33,7 +33,7 @@ jobs:
         run: ls
 
       - name: Build container image
-        run: docker build -t $(echo $REGISTRY)/$(echo $IMAGE_NAME):$(echo $GITHUB_SHA | head -c7) .
+        run: docker build -t $(echo $REGISTRY)/$(echo $IMAGE_NAME):$(echo head -c7) .
 
 
       # Runs a single command using the runners shell
