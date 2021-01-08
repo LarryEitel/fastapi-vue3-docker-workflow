@@ -27,9 +27,15 @@ Stubbing out and documenting FastAPI, VueJS 3 and Docker workflow.
 - [ ] Create user
   - adduser larry
   - adduser larry sudo
+    - or usermod -aG sudo larry?
   - sudo su - larry
+  - verify docker group exists
+    - cat /etc/group
+  - as root: add user to docker group
+    - sudo usermod -aG docker larry
 - [ ] Github runner
   - Nice
+    - [Automatically Deploy Docker + Wordpress To Digitalocean With Github Actions - CI&CD](https://youtu.be/-nT1Xs7-qqA?t=1225)
     - [Deploying Self-hosted Runners for GitHub Actions](https://www.youtube.com/watch?v=G6nBM3NxBDc)
     - [Deploying to Digitalocean](https://stackabuse.com/deploying-a-node-js-app-to-a-digitalocean-droplet-with-docker/)
   - [github actions](https://github.com/LarryEitel/fastapi-vue3-docker-workflow/settings/actions)

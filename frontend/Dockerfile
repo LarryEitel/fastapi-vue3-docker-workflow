@@ -15,6 +15,6 @@ COPY . .
 RUN ls
 RUN ls ./src
 
-EXPOSE 8080
+EXPOSE "${PORT:-8080}:80"
 
 CMD ["yarn", "serve"]
