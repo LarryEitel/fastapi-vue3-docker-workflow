@@ -6,6 +6,7 @@ Stubbing out and documenting FastAPI, VueJS 3 and Docker workflow.
 ## Must Reads
 - [x] [Deploying Self-Hosted Github Actions Runners with Docker](https://testdriven.io/blog/github-actions-docker/)
 
+
 ## Punchlist
 - [x] Create sample vue frontend
   - From frontend DIR, [Vue CLI create project](https://cli.vuejs.org/guide/creating-a-project.html#vue-create) (Installed in same DIR and selected default Vue3)

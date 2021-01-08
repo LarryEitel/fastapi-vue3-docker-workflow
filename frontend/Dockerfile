@@ -1,13 +1,20 @@
-FROM node:latest as build-stage
-WORKDIR /app
-COPY frontend/package*.json ./
-RUN ls -l
-RUN npm install
-COPY frontend/ .
-RUN ls -l
-RUN npm run build
+# FROM mhart/alpine-node:15.5.1
+FROM node:lts-alpine
 
-FROM nginx as production-stage
-RUN mkdir /app
-COPY --from=build-stage /app/dist /app
-COPY frontend/nginx.conf /etc/nginx/nginx.conf
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+
+
+COPY .eslintrc.js ./
+COPY babel.config.js ./
+
+COPY . .
+
+RUN ls
+RUN ls ./src
+
+EXPOSE 8080
+
+CMD ["yarn", "serve"]
