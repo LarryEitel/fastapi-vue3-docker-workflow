@@ -82,7 +82,7 @@ NOTE: This is a sandbox project. Glean ideas only.
     - systemctl start nginx
     - systemctl restart nginx
     - sudo systemctl reload nginx
-    - systemctl disable nginx
+    - sudo systemctl disable nginx
     - systemctl enable nginx
     - systemctl status nginx.service
   - Visit droplet IP to see NGINX page.
