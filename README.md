@@ -1,6 +1,9 @@
 # fastapi-vue3-docker-workflow
 Stubbing out and documenting FastAPI, VueJS 3 and Docker workflow.
 
+NOTE: This is a sandbox project. Glean ideas only.
+
+
 ![Build Containers for Prod & Push to Dockerhub](https://github.com/LarryEitel/fastapi-vue3-docker-workflow/workflows/Build%20Containers%20for%20Prod%20&%20Push%20to%20Dockerhub/badge.svg)
 
 ## Must Reads
@@ -13,9 +16,21 @@ Stubbing out and documenting FastAPI, VueJS 3 and Docker workflow.
   - yarn serve and [http://localhost:8080/](http://localhost:8080/)
 - [X] Push to Git
 - [X] Create Dockerfile to run Vue from Docker
-  - From frontend DIR, [create Docker image](https://cli.vuejs.org/guide/deployment.html#docker-nginx)
-  - docker build . -t frontend
-  - docker run -d -p 8080:80 frontend
+  - [Dockerizing a Vue App](https://mherman.org/blog/dockerizing-a-vue-app/)
+    
+  - For Dev
+    - docker build -f ./frontend/DockerfileDev -t frontend:dev ./frontend
+    - Hot loading doesn't work with this as expected. Only with docker-compose
+    - docker run -it -v ${PWD}:/app -v /app/node_modules -p 8080:8080 -e CHOKIDAR_USEPOLLING=true --rm frontend:dev
+    - docker-compose -f docker-compose-dev.yml up -d
+
+  - For Prod
+    - docker build -f ./frontend/Dockerfile -t frontend:prod ./frontend
+    - winpty docker run -it -p 80:80 --rm frontend:prod
+    - docker-compose
+    - docker-compose up -d --build
+    
+
 - [x] Create GitAction to build docker image and push to dockerhub
   - Confirm image arrived at private [hub.docker.com](https://hub.docker.com/)
 - [x] Create [DigitalOcean](digitalocean.com) Droplet for <domain.com>
@@ -46,8 +61,6 @@ Stubbing out and documenting FastAPI, VueJS 3 and Docker workflow.
         - sudo ./svc.sh install
         - sudo ./svc.sh start
         - sudo ./svc.sh status
-    - QUESTION: How to follow log?
-      - sudo journalctl -u actions.runner........
 - [x] Docker Prep
   - mkdir /root/devops
   - cd /root/devops
@@ -65,10 +78,10 @@ Stubbing out and documenting FastAPI, VueJS 3 and Docker workflow.
   - Confirm server is running
     - systemctl status nginx
   - Key nginx commands
-    - systemctl stop nginx
+    - sudo systemctl stop nginx
     - systemctl start nginx
     - systemctl restart nginx
-    - systemctl reload nginx
+    - sudo systemctl reload nginx
     - systemctl disable nginx
     - systemctl enable nginx
     - systemctl status nginx.service

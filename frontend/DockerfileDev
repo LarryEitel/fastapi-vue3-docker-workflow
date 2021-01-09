@@ -1,0 +1,19 @@
+FROM node:lts-alpine
+
+WORKDIR /app
+
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
+
+COPY package*.json ./
+RUN npm install
+
+
+COPY .eslintrc.js ./
+COPY babel.config.js ./
+
+COPY . .
+
+CMD ["yarn", "serve"]
+
+# docker run -d -p 8080:8080 frontend
