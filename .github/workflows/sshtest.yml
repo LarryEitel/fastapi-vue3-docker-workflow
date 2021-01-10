@@ -18,7 +18,7 @@ jobs:
 
       - name: check keys
         run: |
-          ls -l /home/.ssh
+          ls -l /home/runner/.ssh
 
       - name: test ssh
         uses: appleboy/ssh-action@master
