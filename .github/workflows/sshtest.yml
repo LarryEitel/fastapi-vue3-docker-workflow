@@ -16,15 +16,11 @@ jobs:
       - name: Run whoami
         run: whoami
 
-      - name: check keys
-        run: |
-          ls -l /home/runner/.ssh
-
       - name: test ssh
         uses: appleboy/ssh-action@master
         with:
           host: craulio.com
-          username: larry
+          username: runner
           key: ${{ secrets.FAST_VUE3_DOCKER_WORKFLOW_PRIV_KEY }}
           port: 22
           script: |
