@@ -1,36 +1,21 @@
-name: CI
-on: [push, pull_request]
+name: SSH Deploy
+
+on:
+  push:
+    branches: [ master ]
+
 jobs:
-  # test:
-  #   ...
   deploy:
-    name: "Deploy to staging"
     runs-on: ubuntu-latest
-    # if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-    # needs: test
+
     steps:
-      - name: Configure SSH
-        run: |
-          mkdir -p ~/.ssh/
-          echo "$SSH_KEY" > ~/.ssh/staging.key
-          chmod 600 ~/.ssh/staging.key
-          cat >>~/.ssh/config <<END
-          Host staging
-            HostName $SSH_HOST
-            User $SSH_USER
-            IdentityFile ~/.ssh/staging.key
-            StrictHostKeyChecking no
-          END
+      - uses: actions/checkout@v2
+      - name: ssh deploy
+        uses: easingthemes/ssh-deploy@v2.1.4
         env:
-          SSH_USER: ${{ secrets.STAGING_SSH_USER }}
-          SSH_KEY: ${{ secrets.FAST_VUE3_DOCKER_WORKFLOW_PRIV_KEY }}
-          SSH_HOST: ${{ secrets.HOST }}
-
-      - name: Stop the server
-        run: ssh staging 'cd /home/larry/www && docker-compose down'
-
-      - name: Check out the source
-        run: ssh staging 'cd /home/larry/www && git fetch && git reset --hard origin/main'
-
-      - name: Start the server
-        run: ssh staging 'cd /home/larry/www && docker-compose up -d'
+          SSH_PRIVATE_KEY: ${{ secrets.FAST_VUE3_DOCKER_WORKFLOW_PRIV_KEY }}
+          REMOTE_HOST: ${{ secrets.HOST }}
+          REMOTE_USER: larry
+          REMOTE_PORT: 22
+          SOURCE: "dist/"
+          TARGET: /home/larry/www/dist
