@@ -3,7 +3,9 @@ Stubbing out and documenting FastAPI, VueJS 3 and Docker workflow.
 
 NOTE: This is a sandbox project. Glean ideas only.
 
-
+- Copy private key to github secrets
+- Copy public key to DigitalOcean authorized_keys
+  - 
 ![Build Containers for Prod & Push to Dockerhub](https://github.com/LarryEitel/fastapi-vue3-docker-workflow/workflows/Build%20Containers%20for%20Prod%20&%20Push%20to%20Dockerhub/badge.svg)
 
 ## Must Reads
@@ -30,6 +32,9 @@ NOTE: This is a sandbox project. Glean ideas only.
     - docker-compose
     - docker-compose up -d --build
     
+  - On Digitalocean
+    - ~/actions-runner/_work/fastapi-vue3-docker-workflow/fastapi-vue3-docker-workflow
+   
 
 - [x] Create GitAction to build docker image and push to dockerhub
   - Confirm image arrived at private [hub.docker.com](https://hub.docker.com/)

@@ -1,0 +1,26 @@
+name: sshTest
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  job_one:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: test ssh
+        uses: appleboy/ssh-action@master
+        with:
+          host: craulio.com
+          username: larry
+          key: ${{ secrets.FAST_VUE3_DOCKER_WORKFLOW_PRIV_KEY }}
+          port: 22
+          script: |
+            cd /home/larry/www
+            git pull origin main
+            git status
