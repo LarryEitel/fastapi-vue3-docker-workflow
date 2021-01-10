@@ -23,3 +23,16 @@ jobs:
             cd /home/larry/www
             git pull origin main
             git status
+        run: |
+          mkdir -p ~/.ssh/
+          echo "FAST_VUE3_DOCKER_WORKFLOW_PRIV_KEY" > ../private.key
+          sudo chmod 600 ../private.key
+          echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          cd /home/larry/www
+          git pull origin main
+          git status
+        shell: bash
+        env:
+          SSH_PRIVATE_KEY: ${{secrets.FAST_VUE3_DOCKER_WORKFLOW_PRIV_KEY}}
+          SSH_KNOWN_HOSTS: ${{secrets.SSH_KNOWN_HOSTS}}
+          SSH_KEY_PATH: ${{ github.workspace }}/../private.key
