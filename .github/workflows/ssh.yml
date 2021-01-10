@@ -12,8 +12,8 @@ jobs:
       - name: ssh deploy
         uses: easingthemes/ssh-deploy@v2.1.4
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.FAST_VUE3_DOCKER_WORKFLOW_PRIV_KEY }}
-          REMOTE_HOST: ${{ secrets.HOST }}
+          SSH_PRIVATE_KEY: ${{secrets.FAST_VUE3_DOCKER_WORKFLOW_PRIV_KEY}}
+          REMOTE_HOST: craulio.com
           REMOTE_USER: larry
           REMOTE_PORT: 22
           SOURCE: "dist/"
