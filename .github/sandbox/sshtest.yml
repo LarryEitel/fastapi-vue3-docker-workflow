@@ -27,21 +27,6 @@ jobs:
             StrictHostKeyChecking no
           END
         env:
-          SSH_USER: ${{ secrets.STAGING_SSH_USER }}
-          SSH_KEY: ${{ secrets.STAGING_SSH_KEY }}
-          SSH_HOST: ${{ secrets.STAGING_SSH_HOST }}
-
-      - name: Run whoami
-        run: whoami
-
-      - name: test ssh
-        uses: appleboy/ssh-action@master
-        with:
-          host: craulio.com
-          username: larry
-          key: ${{ secrets.FAST_VUE3_DOCKER_WORKFLOW_PRIV_KEY }}
-          port: 22
-          script: |
-            cd /home/larry/www
-            git pull origin main
-            git status
+          SSH_USER: larry
+          SSH_KEY: ${{ secrets.FAST_VUE3_DOCKER_WORKFLOW_PRIV_KEY }}
+          SSH_HOST: craulio.com
