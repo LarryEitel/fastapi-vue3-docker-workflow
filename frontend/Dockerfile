@@ -6,8 +6,8 @@ ENV PATH /app/node_modules/.bin:$PATH
 # COPY package.json /app/package.json
 COPY package.json ./
 
-RUN npm install --silent
-RUN npm install @vue/cli@4.5.8 -g
+RUN npm install --silent \
+    npm install @vue/cli@4.5.8 -g
 
 COPY .eslintrc.js ./
 COPY babel.config.js ./
